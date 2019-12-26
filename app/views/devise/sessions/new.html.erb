@@ -1,0 +1,45 @@
+<% provide :title, t("views.users.session.log_in") %>
+<div class="bradcam_area bradcam_bg_2">
+  <div class="container">
+    <div class="row">
+      <div class="col-xl-12">
+        <div class="bradcam_text text-center">
+          <h3></h3>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+<section class="contact-section section_padding">
+  <div class="container">
+    <div class="row">
+      <div class="col-lg-3"></div>
+      <div class="col-lg-6">
+        <h2><%= t "views.users.session.log_in" %></h2>
+        <%= form_for(resource, as: resource_name, url: session_path(resource_name)) do |f| %>
+        <div class="field">
+          <%= f.label t("views.users.edit.email") %><br />
+          <%= f.email_field :email, autofocus: true, autocomplete: "email", class: "form-control" %>
+        </div>
+
+        <div class="field">
+          <%= f.label t("views.users.edit.pass") %><br />
+          <%= f.password_field :password, autocomplete: "current-password", class: "form-control" %>
+        </div>
+
+        <% if devise_mapping.rememberable? %>
+        <div class="field">
+          <%= f.check_box :remember_me, class: "form-control" %>
+          <%= f.label t("views.users.session.remember") %>
+        </div>
+        <% end %>
+
+        <div class="actions">
+          <%= f.submit t("views.users.session.log_in"), class: "btn btn-primary" %>
+        </div>
+        <% end %>
+        <%= render "devise/shared/links" %>
+      </div>
+    </div>
+  </div>
+</section>
